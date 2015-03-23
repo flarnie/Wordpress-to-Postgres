@@ -1,4 +1,5 @@
 var fs = require('fs');
+var parseString = require('xml2js').parseString;
 
 /**
  * buildSQLScript
@@ -17,10 +18,15 @@ var buildSQLScript = function(){
   }
 
   var fileContents = fs.readFileSync(filename, { encoding: 'utf8' });
-
-  console.log(fileContents.slice(0, 10));
-  //var sqlStatements =  generate the sqlStatements and push into array.
-  //fs.writeFileSync('insertWPPosts-' + Date.now() + '.sql', sqlStatements.join(''));
+  var parsedFileContents = parseString(fileContents, function(err, result) {
+    if (err) {
+      throw new Error(('xml2js failed with error: ' + err));
+    } else {
+      console.log(result);
+    }
+    //var sqlStatements =  generate the sqlStatements and push into array.
+    //fs.writeFileSync('insertWPPosts-' + Date.now() + '.sql', sqlStatements.join(''));
+  });
 };
 
 buildSQLScript();
