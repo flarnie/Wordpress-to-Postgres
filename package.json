@@ -1,0 +1,27 @@
+{
+  "name": "wordpress_to_postgres",
+  "version": "0.0.1",
+  "description": "A script to insert posts into Postgres database based on WXR WordPress file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flarnie/Wordpress-to-Postgres.git"
+  },
+  "keywords": [
+    "wordpress",
+    "postgres",
+    "postgresql"
+  ],
+  "author": "flarnie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flarnie/Wordpress-to-Postgres/issues"
+  },
+  "homepage": "https://github.com/flarnie/Wordpress-to-Postgres",
+  "dependencies": {
+    "xml2js": "^0.4.6"
+  }
+}
