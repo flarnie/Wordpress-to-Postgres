@@ -1,4 +1,4 @@
-#Wordpress to PostgreSQL
+# Wordpress to PostgreSQL
 
 This node.js script will translate the
 [WXR file exported by WordPress][wp-export] into a script to create a PostgreSQL
@@ -22,7 +22,7 @@ posts, but without as much cruft.
 [wp-export]: http://codex.wordpress.org/Tools_Export_Screen
 [wp-db]: https://codex.wordpress.org/images/9/97/WP3.8-ERD.png
 
-##Setting Up
+## Setting Up
 
 If you don't have an existing database, create one:
 > createdb my_database
@@ -31,7 +31,7 @@ Create the 'posts' table in your database using the 'create_tables.sql' file
 from this project:
 > cat 'create_tables.sql' | psql my_database
 
-##How To Use
+## How To Use
 
 > node wordpress_to_postgres yourusername.wordpress.2015-03-22.xml
 
