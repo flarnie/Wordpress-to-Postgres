@@ -29,11 +29,11 @@ If you don't have an existing database, create one:
 
 Create the 'posts' table in your database using the 'create_tables.sql' file
 from this project:
-> cat 'create_tables.sql' | psql my_database
+> cat node_modules/wordpress_to_postgres/create_tables.sql | psql my_database
 
 ## How To Use
 
-> node wordpress_to_postgres yourusername.wordpress.2015-03-22.xml
+> wordpress_to_postgres yourusername.wordpress.2015-03-22.xml
 
 That will generate a file with the prefix 'insert-posts' and a date-in-ms number
 appended to the end to make it unique. Use that file to add your blog posts to
