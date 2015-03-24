@@ -30,3 +30,15 @@ If you don't have an existing database, create one:
 Create the 'posts' table in your database using the 'create_tables.sql' file
 from this project:
 > cat 'create_tables.sql' | psql my_database
+
+##How To Use
+
+> node index.js yourusername.wordpress.2015-03-22.xml
+
+That will generate a file with the prefix 'insert-posts' and a date-in-ms number
+appended to the end to make it unique. Use that file to add your blog posts to
+the database, like so:
+
+> cat insertPosts-1426965702734.sql | psql my_database
+
+That's it!
