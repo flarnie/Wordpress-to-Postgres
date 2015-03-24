@@ -1,6 +1,6 @@
 {
   "name": "wordpress_to_postgres",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A script to insert posts into Postgres database based on WXR WordPress file.",
   "main": "index.js",
   "scripts": {
