@@ -33,7 +33,7 @@ from this project:
 
 ##How To Use
 
-> node index.js yourusername.wordpress.2015-03-22.xml
+> node wordpress_to_postgres yourusername.wordpress.2015-03-22.xml
 
 That will generate a file with the prefix 'insert-posts' and a date-in-ms number
 appended to the end to make it unique. Use that file to add your blog posts to
