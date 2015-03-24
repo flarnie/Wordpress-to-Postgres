@@ -1,4 +1,4 @@
- #! /usr/bin/env node
+#! /usr/bin/env node
 
 var fs = require('fs');
 var parseString = require('xml2js').parseString;
