@@ -1,6 +1,14 @@
 var fs = require('fs');
 var parseString = require('xml2js').parseString;
 /**
+ * @param {String} text
+ * @return {String} the text with single quotes escaped
+ */
+var singleToDoubleQuotes = function(text) {
+  return text.replace(/'/g, '"');
+};
+
+/**
  * createSQLInsertStatement
  * @param {Object} postObject
  * @return {String}
@@ -9,10 +17,10 @@ var createSQLInsertStatement = function(postObject) {
   var postId = postObject['wp:post_id'][0];
   var postDate = postObject['wp:post_date'][0].slice(0, 10);
   var postDateGMT = postObject['wp:post_date_gmt'][0].slice(0, 10);
-  var postContent = postObject['content:encoded'][0];
-  var postTitle = postObject['title'][0];
-  var postExcerpt = postObject['excerpt:encoded'][0];
-  var postStatus = postObject['wp:status'][0];
+  var postContent = singleToDoubleQuotes(postObject['content:encoded'][0]);
+  var postTitle = singleToDoubleQuotes(postObject['title'][0]);
+  var postExcerpt = singleToDoubleQuotes(postObject['excerpt:encoded'][0]);
+  var postStatus = singleToDoubleQuotes(postObject['wp:status'][0]);
   var postLink = postObject['link'][0].match(/flarnie.com(.+)$/)[0];
 
   return "insert into wp_posts (wp_id, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, post_link)\n"
@@ -21,9 +29,9 @@ var createSQLInsertStatement = function(postObject) {
   "    to_date('" + postDate + "', 'YYYY-MM-DD'),\n" +
   "    to_date('" + postDateGMT + "', 'YYYY-MM-DD'),\n" +
   "    '" + postContent + "',\n" +
-  "    '" + postTitle + "'\n" +
-  "    '" + postExcerpt + "'\n" +
-  "    '" + postStatus + "'\n" +
+  "    '" + postTitle + "',\n" +
+  "    '" + postExcerpt + "',\n" +
+  "    '" + postStatus + "',\n" +
   "    '" + postLink + "'\n" +
   '  );\n\n';
 };
